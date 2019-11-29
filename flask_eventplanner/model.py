@@ -204,7 +204,7 @@ class RSVPMixin(fsa.Model):
     def user(cls):
         return relationship(
             'User',
-            backref=backref('invitations', lazy='dynamic')
+            backref=backref('rsvps', lazy='dynamic')
         )
 
     # noinspection PyMethodParameters
@@ -217,5 +217,5 @@ class RSVPMixin(fsa.Model):
     def event(cls):
         return relationship(
             'Event',
-            backref=backref('invitees', lazy='dynamic')
+            backref=backref('rsvps', lazy='dynamic')
         )
