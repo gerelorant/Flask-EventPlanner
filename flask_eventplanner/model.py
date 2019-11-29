@@ -57,7 +57,7 @@ class RoomMixin(fsa.Model):
     def venue(cls):
         return relationship(
             'Venue',
-            backref=backref('rooms', dynamic='lazy')
+            backref=backref('rooms', lazy='dynamic')
         )
 
     @property
@@ -106,7 +106,7 @@ class EventMixin(fsa.Model):
     def venue(cls):
         return relationship(
             'Venue',
-            backref=backref('events', dynamic='lazy')
+            backref=backref('events', lazy='dynamic')
         )
 
 
@@ -126,7 +126,7 @@ class ProgramMixin(fsa.Model):
     def room(cls):
         return relationship(
             'Room',
-            backref=backref('rooms', dynamic='lazy')
+            backref=backref('rooms', lazy='dynamic')
         )
 
 
@@ -143,7 +143,7 @@ class OrganizerMixin(fsa.Model):
     def user(cls):
         return relationship(
             'User',
-            backref=backref('organized_events', dynamic='lazy')
+            backref=backref('organized_events', lazy='dynamic')
         )
 
     # noinspection PyMethodParameters
@@ -156,7 +156,7 @@ class OrganizerMixin(fsa.Model):
     def event(cls):
         return relationship(
             'Event',
-            backref=backref('organizers', dynamic='lazy')
+            backref=backref('organizers', lazy='dynamic')
         )
 
 
@@ -173,7 +173,7 @@ class InvitationMixin(fsa.Model):
     def user(cls):
         return relationship(
             'User',
-            backref=backref('invitations', dynamic='lazy')
+            backref=backref('invitations', lazy='dynamic')
         )
 
     # noinspection PyMethodParameters
@@ -186,7 +186,7 @@ class InvitationMixin(fsa.Model):
     def event(cls):
         return relationship(
             'Event',
-            backref=backref('invitees', dynamic='lazy')
+            backref=backref('invitees', lazy='dynamic')
         )
 
 
@@ -204,7 +204,7 @@ class RSVPMixin(fsa.Model):
     def user(cls):
         return relationship(
             'User',
-            backref=backref('invitations', dynamic='lazy')
+            backref=backref('invitations', lazy='dynamic')
         )
 
     # noinspection PyMethodParameters
@@ -217,5 +217,5 @@ class RSVPMixin(fsa.Model):
     def event(cls):
         return relationship(
             'Event',
-            backref=backref('invitees', dynamic='lazy')
+            backref=backref('invitees', lazy='dynamic')
         )
